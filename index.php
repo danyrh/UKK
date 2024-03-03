@@ -31,11 +31,11 @@
 	<link rel="stylesheet" type= "text/css "href="./css/style.css"> <!-- menghubungkan halaman web ke file library css -->
 </head>
     <body>
-    <div class="container border">
+    <div class="container">
         <!-- Menampilkan judul halaman -->
-        <h3>Form Pembelian Sparepart</h3>
+        <h1>Form Pembelian Sparepart</h1>
         <!-- nomor 6-->
-		<img src=" ./img/rndr.jpg" alt="logo"> <!-- menambahkan logo ke file gambar -->
+		<img src="./img/logo.png" alt="logo"> <!-- menambahkan logo ke file gambar -->
         <body style="background-color: #f2f2f2;">
     <!-- Konten halaman -->
     <style>
@@ -49,7 +49,7 @@
         <!-- Nomor 7 -->
         <form action="index.php" method="POST" id="formPemesanan">
             <div class="row">
-                <div class="col-lg-2"><label for="tipe">Sparepart:</label></div>
+                <div class="col-lg-2"><label for="tipe">Sparepart</label></div>
                 <div class="col-lg-2">
                     <select id="sparepart" name="sparepart">
                         <option value="">- Pilih Sparepart -</option>
@@ -61,7 +61,7 @@
                 </div>
             </div>
             <div class="row">
-                <div class="col-lg-2"><label for="tipe">Harga:</label></div>
+                <div class="col-lg-2"><label for="tipe">Harga</label></div>
                 <div class="col-lg-2">
                     <select id="harga" name="harga">
                         <option value="">- Harga Sparepart -</option>
@@ -74,17 +74,17 @@
             </div>
             <div class="row">
                 <!-- Masukan data nama pelanggan. Tipe data text. -->
-                <div class="col-lg-2"><label for="nama">Nama Pelanggan:</label></div>
+                <div class="col-lg-2"><label for="nama">Nama Pelanggan</label></div>
                 <div class="col-lg-2"><input type="text" id="nama" name="nama"></div>
             </div>
             <div class="row">
                 <!-- Masukan data jumlah kotak pesanan. Tipe data number. -->
-                <div class="col-lg-2"><label for="nomor">Jumlah Sparepart:</label></div>
+                <div class="col-lg-2"><label for="nomor">Jumlah Sparepart</label></div>
                 <div class="col-lg-2"><input type="number" id="jumlahPesanan" name="jumlahPesanan" maxlength="10"></div>
             </div>
             <div class="row">
                 <!-- Tombol Submit -->
-                <div class="col-lg-2"><button class="btn btn-primary" type="submit" form="formPemesanan" value="Pesan"
+                <div class="col-lg-2"><button class="btn" type="submit" form="formPemesanan" value="Pesan"
                         name="Pesan">Beli</button></div>
                 <div class="col-lg-2"></div>
             </div>
@@ -137,6 +137,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         // ... (lanjutan kode)                                                                                                                                                                                                                                                                
 
         // nomor 11
+        echo '<div class="informasi-pembelian">';
+        echo "Informasi Pembelian: <br>";
         echo "Informasi Pembelian: <br>";
         echo "Nama Konsumen: " . $data_pembelian['nama'] . "<br>";
         echo "Nama Sparepart: " . $data_pembelian['sparepart'] . "<br>";
@@ -146,20 +148,18 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         // nomor 13
         $totalPembelian = $data_pembelian['harga'] * $data_pembelian['jumlahPesanan'];
         echo "Total Pembelian: Rp" . number_format($totalPembelian, 0, ".", ".") . ",-<br>";
+        echo '</div>';
     } else {
         // Tampilkan pesan error
         foreach ($errors as $error) {
-            echo '<div class="alert alert-warning"><b>' . $error . '</div>';
+            echo '<div class="alert-warning"><b>' . $error . '</div>';
         }
     }
 }
 	?>
     <footer>
         <p>&copy; 2024 motor jaya pringsewu. Muzakki rahman hakim.</p>
-
-    </footer>
-
-        
+    </footer>        
 </body>
 </html>
 			
